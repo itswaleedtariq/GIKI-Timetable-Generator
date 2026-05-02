@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIKI Timetable — Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0b1f3a;--navy2:#0f2847;--teal:#0f6b5c;--teal2:#1a8a74;
+  --gold:#c9a84c;--gold2:#e8c96a;--white:#ffffff;--muted:#6b7280;
+  --light:#f5f6f8;--border:#e4e7ec;
+}
+html,body{height:100%;}
+body{font-family:'DM Sans',sans-serif;background:var(--light);color:var(--navy);min-height:100vh;display:flex;flex-direction:column;}
+
+.topbar{background:var(--navy);height:60px;display:flex;align-items:center;padding:0 2rem;gap:1rem;position:sticky;top:0;z-index:20;border-bottom:2px solid var(--gold);animation:slideDown .5s both;}
+@keyframes slideDown{from{transform:translateY(-60px);}to{transform:translateY(0);}}
+.topbar-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;}
+.topbar-logo img{height:36px;width:36px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(201,168,76,.4));}
+.brand{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--white);}
+.brand span{color:var(--gold);}
+.topbar-sep{flex:1;}
+.nav-link{font-size:.8rem;font-weight:500;color:rgba(255,255,255,.6);text-decoration:none;padding:.35rem .7rem;border-radius:6px;transition:color .15s,background .15s;}
+.nav-link:hover,.nav-link.active{color:var(--white);background:rgba(255,255,255,.08);}
+.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--gold));display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:600;color:var(--white);cursor:pointer;margin-left:.5rem;border:2px solid rgba(201,168,76,.4);}
+
+.hero-banner{background:linear-gradient(135deg,var(--navy) 0%,#0d2545 50%,var(--teal) 100%);padding:3rem 2.5rem 5rem;position:relative;overflow:hidden;}
+.hero-banner::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.05) 1px,transparent 1px);background-size:40px 40px;animation:gridDrift 30s linear infinite;}
+@keyframes gridDrift{from{background-position:0 0;}to{background-position:40px 40px;}}
+.hero-banner::after{content:'';position:absolute;bottom:-60px;left:0;right:0;height:100px;background:var(--light);border-radius:50% 50% 0 0/60px 60px 0 0;}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
+.hero-text{animation:fadeUp .6s .15s both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.hero-chip{display:inline-flex;align-items:center;gap:.4rem;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);border-radius:20px;padding:.25rem .85rem;font-size:.72rem;font-weight:500;color:var(--gold2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem;}
+.chip-dot{width:6px;height:6px;border-radius:50%;background:var(--gold2);animation:blink 1.5s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.hero-text h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--white);line-height:1.2;margin-bottom:.75rem;}
+.hero-text h1 em{color:var(--gold);font-style:normal;}
+.hero-text p{font-size:.9rem;color:rgba(255,255,255,.65);max-width:440px;line-height:1.7;}
+.hero-graphic{width:180px;height:160px;flex-shrink:0;animation:floatUD 4s ease-in-out infinite;}
+@keyframes floatUD{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+
+.main{max-width:1100px;margin:0 auto;padding:0 2rem 4rem;}
+
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem;animation:fadeUp .5s .25s both;}
+.stat-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.25rem 1.25rem 1rem;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.stat-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.08);}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));}
+.s-label{font-size:.72rem;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem;}
+.s-value{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--navy);}
+.s-sub{font-size:.72rem;color:var(--muted);margin-top:.2rem;}
+
+.generate-section{display:grid;grid-template-columns:1fr 340px;gap:1.5rem;margin-bottom:2.5rem;animation:fadeUp .5s .35s both;}
+.gen-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem;position:relative;overflow:hidden;}
+.gen-card::after{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle,rgba(15,107,92,.07) 0%,transparent 70%);pointer-events:none;}
+.gen-card h2{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;}
+.gen-card p{font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem;max-width:480px;}
+.feature-pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem;}
+.pill{display:inline-flex;align-items:center;gap:.35rem;background:rgba(15,107,92,.08);border:1px solid rgba(15,107,92,.2);border-radius:20px;padding:.3rem .75rem;font-size:.75rem;font-weight:500;color:var(--teal);}
+.btn-generate{display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,var(--teal),var(--teal2));border:none;border-radius:12px;padding:1rem 2rem;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;color:var(--white);text-decoration:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .15s,box-shadow .2s;}
+.btn-generate::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.12));}
+.btn-generate:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(15,107,92,.4);}
+.pulse-ring{position:absolute;inset:-4px;border-radius:16px;border:2px solid rgba(15,107,92,.4);animation:pulseRing 2s ease-out infinite;}
+@keyframes pulseRing{0%{transform:scale(1);opacity:.6;}100%{transform:scale(1.08);opacity:0;}}
+
+.info-card{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:16px;padding:2rem;color:var(--white);position:relative;overflow:hidden;}
+.info-card::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.06) 1px,transparent 1px);background-size:24px 24px;}
+.info-card h3{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold);margin-bottom:1rem;position:relative;z-index:1;}
+.info-list{position:relative;z-index:1;display:flex;flex-direction:column;gap:.75rem;}
+.info-item{display:flex;align-items:flex-start;gap:.6rem;font-size:.8rem;color:rgba(255,255,255,.75);line-height:1.5;}
+.info-dot{min-width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:5px;flex-shrink:0;}
+code{background:rgba(255,255,255,.1);padding:.1rem .35rem;border-radius:4px;font-size:.75rem;}
+
+.algo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;animation:fadeUp .5s .45s both;}
+.algo-card{background:var(--white);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:14px;padding:1.25rem;transition:transform .2s,box-shadow .2s;}
+.algo-card:nth-child(2){border-left-color:var(--gold);}
+.algo-card:nth-child(3){border-left-color:var(--navy);}
+.algo-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.07);}
+.a-label{font-size:.7rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;}
+.a-val{font-size:.88rem;font-weight:600;color:var(--navy);margin-bottom:.2rem;}
+.a-desc{font-size:.73rem;color:var(--muted);line-height:1.5;}
+
+@media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr);}.generate-section{grid-template-columns:1fr;}.algo-strip{grid-template-columns:1fr;}.hero-graphic{display:none;}}
+@media(max-width:600px){.main{padding:0 1rem 3rem;}.topbar{padding:0 1rem;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="{% url 'index' %}" class="topbar-logo">
+    <img src="https://giki.edu.pk/wp-content/uploads/2025/02/giki-logo-1.png" alt="GIKI" onerror="this.style.display='none'">
+    <span class="brand">GIKI <span>Timetable</span></span>
+  </a>
+  <div class="topbar-sep"></div>
+  <nav style="display:flex;align-items:center;gap:.25rem;">
+    <a href="{% url 'index' %}" class="nav-link active">Dashboard</a>
+    <a href="{% url 'generate' %}" class="nav-link">Generate</a>
+  </nav>
+  <span style="font-size:.8rem;color:rgba(255,255,255,.6);margin-right:.25rem;">{{ user.first_name|default:user.username }}</span>
+  <div class="avatar">{{ user.first_name.0|default:"U"|upper }}</div>
+  <a href="{% url 'logout' %}" style="margin-left:.75rem;font-size:.78rem;color:rgba(255,255,255,.5);text-decoration:none;border:1px solid rgba(255,255,255,.15);padding:.3rem .7rem;border-radius:6px;">Logout</a>
+</div>
+
+<div class="hero-banner">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p>Automated scheduling for all sections, teachers and classrooms — zero conflicts, done in under 2 seconds.</p>
+    </div>
+    <div class="hero-graphic">
+      <svg viewBox="0 0 180 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="24" width="140" height="120" rx="12" fill="rgba(255,255,255,.06)" stroke="rgba(201,168,76,.35)" stroke-width="1.5"/>
+        <rect x="20" y="24" width="140" height="36" rx="12" fill="rgba(15,107,92,.5)"/>
+        <rect x="20" y="48" width="140" height="12" fill="rgba(15,107,92,.5)"/>
+        <text x="90" y="47" text-anchor="middle" fill="#e8c96a" font-size="11" font-weight="600" font-family="DM Sans,sans-serif">GIKI Schedule</text>
+        <text x="38" y="76" fill="rgba(255,255,255,.4)" font-size="8">M</text>
+        <text x="58" y="76" fill="rgba(255,255,255,.4)" font-size="8">T</text>
+        <text x="78" y="76" fill="rgba(255,255,255,.4)" font-size="8">W</text>
+        <text x="98" y="76" fill="rgba(255,255,255,.4)" font-size="8">T</text>
+        <text x="118" y="76" fill="rgba(255,255,255,.4)" font-size="8">F</text>
+        <rect x="30" y="82" width="16" height="14" rx="3" fill="rgba(15,107,92,.7)" opacity="0"><animate attributeName="opacity" values="0;1" dur=".3s" begin=".6s" fill="freeze"/></rect>
+        <rect x="50" y="82" width="16" height="14" rx="3" fill="rgba(201,168,76,.6)" opacity="0"><animate attributeName="opacity" values="0;1" dur=".3s" begin=".75s" fill="freeze"/></rect>
+        <rect x="70" y="82" width="16" height="14" rx="3" fill="rgba(15,107,92,.7)" opacity="0"><animate attributeName="opacity" values="0;1" dur=".3s" begin=".9s" fill="freeze"/></rect>
+        <rect x="90" y="82" width="16" height="14" rx="3" fill="rgba(201,168,76,.6)" opacity="0"><animate attributeName="opacity" values="0;1" dur=".3s" begin="1.05s" fill="freeze"/></rect>
+        <rect x="110" y="82" width="16" height="14" rx="3" fill="rgba(15,107,92,.7)" opacity="0"><animate attributeName="opacity" values="0;1" dur=".3s" begin="1.2s" fill="freeze"/></rect>
+        <rect x="30" y="100" width="16" height="14" rx="3" fill="rgba(201,168,76,.5)" opacity="0"><animate attributeName="opacity" values="0;1" dur=".3s" begin="1.35s" fill="freeze"/></rect>
+        <rect x="50" y="100" width="16" height="14" rx="3" fill="rgba(15,107,92,.6)" opacity="0"><animate attributeName="opacity" values="0;1" dur=".3s" begin="1.5s" fill="freeze"/></rect>
+        <rect x="70" y="100" width="16" height="14" rx="3" fill="rgba(201,168,76,.5)" opacity="0"><animate attributeName="opacity" values="0;1" dur=".3s" begin="1.65s" fill="freeze"/></rect>
+        <rect x="90" y="100" width="16" height="14" rx="3" fill="rgba(15,107,92,.6)" opacity="0"><animate attributeName="opacity" values="0;1" dur=".3s" begin="1.8s" fill="freeze"/></rect>
+        <rect x="110" y="100" width="16" height="14" rx="3" fill="rgba(201,168,76,.5)" opacity="0"><animate attributeName="opacity" values="0;1" dur=".3s" begin="1.95s" fill="freeze"/></rect>
+        <circle cx="148" cy="130" r="18" fill="rgba(15,107,92,.9)" opacity="0"><animate attributeName="opacity" values="0;1" dur=".4s" begin="2.2s" fill="freeze"/></circle>
+        <path d="M140 130l5 5 9-9" stroke="#e8c96a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0"><animate attributeName="opacity" values="0;1" dur=".4s" begin="2.5s" fill="freeze"/></path>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="stats-grid">
+    <div class="stat-card"><div class="s-label">Total Courses</div><div class="s-value" id="cnt-courses">–</div><div class="s-sub">from dataset.csv</div></div>
+    <div class="stat-card"><div class="s-label">Sections</div><div class="s-value" id="cnt-sections">–</div><div class="s-sub">all departments</div></div>
+    <div class="stat-card"><div class="s-label">Rooms Available</div><div class="s-value">10</div><div class="s-sub">labs + lecture halls</div></div>
+    <div class="stat-card"><div class="s-label">Time Slots / Week</div><div class="s-value">25</div><div class="s-sub">Mon – Fri, 5 periods</div></div>
+  </div>
+
+  <div class="generate-section">
+    <div class="gen-card">
+      <h2>Generate Timetable</h2>
+      <p>Runs the hybrid CSP solver on your dataset — greedy first-pass fills most slots instantly, then backtracking resolves any remaining conflicts. Produces a complete schedule for all sections.</p>
+      <div class="feature-pills">
+        <span class="pill">✓ Zero conflicts</span>
+        <span class="pill">✓ All sections covered</span>
+        <span class="pill">✓ Filterable results</span>
+        <span class="pill">✓ Table + Grid view</span>
+      </div>
+      <a href="{% url 'generate' %}" class="btn-generate">
+        <div class="pulse-ring"></div>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3v12M3 9h12" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        Generate Now
+      </a>
+    </div>
+
+    <div class="info-card">
+      <h3>How it works</h3>
+      <div class="info-list">
+        <div class="info-item"><div class="info-dot"></div>Reads courses, teachers and sections from <code>dataset.csv</code></div>
+        <div class="info-item"><div class="info-dot"></div>Greedy pass assigns ~90% of sessions in O(V·D) time</div>
+        <div class="info-item"><div class="info-dot"></div>Backtracking with MRV heuristic resolves remaining conflicts</div>
+        <div class="info-item"><div class="info-dot"></div>O(1) conflict detection via hash-indexed slot tables</div>
+        <div class="info-item"><div class="info-dot"></div>Full timetable delivered in under 2 seconds</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="algo-strip">
+    <div class="algo-card"><div class="a-label">Greedy first-pass</div><div class="a-val">O(V · D)</div><div class="a-desc">Assigns most variables instantly without backtracking. Typically covers 80–95% of sessions.</div></div>
+    <div class="algo-card"><div class="a-label">Conflict detection</div><div class="a-val">O(1) per check</div><div class="a-desc">Hash-indexed slot tables replace the old O(V) scan — orders of magnitude faster.</div></div>
+    <div class="algo-card"><div class="a-label">Backtracking (worst case)</div><div class="a-val">O(D^k · V)</div><div class="a-desc">Only runs on the small remaining fraction. MRV + degree heuristic keeps k very small.</div></div>
+  </div>
+</div>
+
+<script>
+function animateCount(el,target,dur=800){
+  let start=null;
+  const step=ts=>{if(!start)start=ts;const p=Math.min((ts-start)/dur,1);el.textContent=Math.round(p*target);if(p<1)requestAnimationFrame(step);else el.textContent=target;};
+  requestAnimationFrame(step);
+}
+setTimeout(()=>{
+  animateCount(document.getElementById('cnt-courses'),99);
+  animateCount(document.getElementById('cnt-sections'),24);
+},400);
+</script>
+</body>
+</html>

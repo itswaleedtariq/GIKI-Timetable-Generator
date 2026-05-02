@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIKI Timetable — Generated Schedule</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:#0b1f3a; --teal:#0f6b5c; --teal2:#1a8a74;
+    --gold:#c9a84c; --gold2:#e8c96a; --white:#ffffff;
+    --muted:#6b7280; --light:#f5f6f8; --border:#e4e7ec;
+  }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--light);
+    color: #1a1d23;
+    min-height: 100vh;
+  }
+
+  /* ── Top bar ──────────────────────────────── */
+  .topbar {
+    background: var(--navy);
+    border-bottom: 2px solid var(--gold);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .topbar-logo {
+    display: flex; align-items: center; gap: .65rem;
+    text-decoration: none;
+  }
+  .topbar-logo img {
+    height: 30px; width: 30px; object-fit: contain;
+    filter: drop-shadow(0 0 6px rgba(201,168,76,.4));
+  }
+  .topbar-logo .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: .95rem; font-weight: 700;
+    color: var(--white);
+  }
+  .topbar-logo .brand span { color: var(--gold); }
+
+  .topbar-sep { flex: 1; }
+
+  .badge-status {
+    display: inline-flex; align-items: center; gap: .4rem;
+    background: rgba(15,107,92,.25);
+    color: #6ee7b7;
+    border: 1px solid rgba(15,107,92,.4);
+    border-radius: 20px;
+    padding: .25rem .75rem;
+    font-size: .78rem; font-weight: 500;
+  }
+  .badge-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #6ee7b7;
+    animation: blink 1.5s infinite;
+  }
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+  .btn-back {
+    display: inline-flex; align-items: center; gap: .35rem;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 8px;
+    padding: .4rem .85rem;
+    font-size: .82rem; font-weight: 500;
+    color: rgba(255,255,255,.8);
+    text-decoration: none;
+    transition: background .15s, border-color .15s;
+  }
+  .btn-back:hover { background: rgba(255,255,255,.14); }
+
+  .btn-logout {
+    display: inline-flex; align-items: center; gap: .35rem;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,.3);
+    border-radius: 8px;
+    padding: .4rem .85rem;
+    font-size: .82rem; font-weight: 500;
+    color: var(--gold2);
+    text-decoration: none;
+    transition: background .15s;
+  }
+  .btn-logout:hover { background: rgba(201,168,76,.1); }
+
+  /* ── Main layout ──────────────────────────── */
+  .main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.75rem 2rem 3rem;
+  }
+
+  .page-header { margin-bottom: 1.5rem; }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: var(--navy);
+  }
+  .page-header p { font-size: .85rem; color: var(--muted); margin-top: .25rem; }
+
+  /* ── Summary strip (no score) ─────────────── */
+  .summary-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: .75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: .9rem 1rem;
+    position: relative; overflow: hidden;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+  }
+  .stat-card .stat-label {
+    font-size: .73rem; font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase; letter-spacing: .04em;
+    margin-bottom: .3rem;
+  }
+  .stat-card .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem; font-weight: 700;
+    color: var(--navy);
+  }
+
+  /* ── Controls bar ─────────────────────────── */
+  .controls {
+    display: flex; flex-wrap: wrap; gap: .75rem;
+    margin-bottom: 1.25rem; align-items: center;
+  }
+  .filter-group { display: flex; align-items: center; gap: .4rem; }
+  .filter-group label { font-size: .8rem; font-weight: 500; color: #374151; white-space: nowrap; }
+
+  select, input[type="text"] {
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: .38rem .65rem;
+    font-size: .82rem;
+    color: #1a1d23;
+    background: #fff;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+    min-width: 140px;
+  }
+  select:focus, input[type="text"]:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(15,107,92,.12);
+  }
+
+  .btn-toggle {
+    display: inline-flex; align-items: center; gap: .35rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: .38rem .75rem;
+    font-size: .82rem; font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+  }
+  .btn-toggle:hover { background: #f9fafb; }
+  .btn-toggle.active { background: rgba(15,107,92,.1); border-color: var(--teal); color: var(--teal); }
+  .controls-right { margin-left: auto; }
+
+  /* ── View containers ──────────────────────── */
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* ── Table view ───────────────────────────── */
+  .table-wrap {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+  }
+
+  table { width: 100%; border-collapse: collapse; font-size: .83rem; }
+  thead { background: #f8f9fb; }
+  thead th {
+    padding: .7rem 1rem;
+    text-align: left;
+    font-size: .73rem; font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase; letter-spacing: .05em;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  tbody tr { border-bottom: 1px solid #f3f4f6; transition: background .1s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #f0fdf9; }
+  tbody td { padding: .65rem 1rem; color: #374151; vertical-align: middle; }
+
+  .course-code {
+    display: inline-block;
+    background: rgba(15,107,92,.1);
+    color: var(--teal);
+    border-radius: 5px;
+    padding: .15rem .45rem;
+    font-size: .73rem; font-weight: 600;
+    white-space: nowrap;
+  }
+  .day-pill {
+    display: inline-block; border-radius: 5px;
+    padding: .15rem .5rem; font-size: .73rem; font-weight: 600; white-space: nowrap;
+  }
+  .day-Monday    { background:#eff6ff; color:#1d4ed8; }
+  .day-Tuesday   { background:#f0fdf4; color:#166534; }
+  .day-Wednesday { background:#fdf4ff; color:#7e22ce; }
+  .day-Thursday  { background:#fff7ed; color:#c2410c; }
+  .day-Friday    { background:#fdf2f8; color:#be185d; }
+  .elective-tag {
+    display: inline-block; background: #fef3c7; color: #92400e;
+    border-radius: 4px; padding: .1rem .4rem;
+    font-size: .68rem; font-weight: 600; margin-left: .3rem;
+  }
+
+  /* ── Grid view ────────────────────────────── */
+  .grid-view { display: grid; gap: .75rem; }
+  .grid-day-block {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+  }
+  .grid-day-header {
+    padding: .6rem 1rem;
+    font-size: .78rem; font-weight: 600; color: #374151;
+    background: #f8f9fb; border-bottom: 1px solid var(--border);
+    text-transform: uppercase; letter-spacing: .06em;
+  }
+  .grid-day-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: .6rem; padding: .75rem;
+  }
+  .slot-card {
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: .65rem .8rem; background: #fafbff;
+    transition: box-shadow .15s, border-color .15s;
+  }
+  .slot-card:hover { border-color: var(--teal); box-shadow: 0 2px 8px rgba(15,107,92,.1); }
+  .slot-card .sc-time { font-size: .7rem; font-weight: 600; color: var(--muted); margin-bottom: .3rem; }
+  .slot-card .sc-course { font-size: .85rem; font-weight: 600; color: #1a1d23; line-height: 1.3; margin-bottom: .25rem; }
+  .slot-card .sc-meta { font-size: .73rem; color: var(--muted); line-height: 1.5; }
+
+  /* ── Empty state ──────────────────────────── */
+  .empty-state { text-align: center; padding: 3rem 1rem; color: #9ca3af; font-size: .9rem; }
+
+  /* ── Print ────────────────────────────────── */
+  @media print {
+    .topbar, .controls, .summary-strip { display: none !important; }
+    .view { display: block !important; }
+    #grid-view { display: none !important; }
+    .table-wrap { border: none; }
+  }
+
+  @media (max-width: 640px) {
+    .main { padding: 1rem; }
+    .topbar { padding: 0 1rem; }
+    .controls { gap: .5rem; }
+    .controls-right { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <a href="{% url 'index' %}" class="topbar-logo">
+    <img src="https://giki.edu.pk/wp-content/uploads/2025/02/giki-logo-1.png"
+         alt="GIKI" onerror="this.style.display='none'">
+    <span class="brand">GIKI <span>Timetable</span></span>
+  </a>
+  <div class="topbar-sep"></div>
+  <div class="badge-status">
+    <span class="badge-dot"></span>
+    Schedule Generated
+  </div>
+  <a href="{% url 'index' %}" class="btn-back">← Dashboard</a>
+  <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
+</div>
+
+<!-- Main -->
+<div class="main">
+  <div class="page-header">
+    <h1>Generated Timetable</h1>
+    <p>{{ timetable|length }} class sessions scheduled across all sections</p>
+  </div>
+
+  <!-- Stats — NO score shown -->
+  <div class="summary-strip">
+    <div class="stat-card">
+      <div class="stat-label">Total Sessions</div>
+      <div class="stat-value" id="stat-total">{{ timetable|length }}</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Sections</div>
+      <div class="stat-value" id="stat-sections">–</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Teachers</div>
+      <div class="stat-value" id="stat-teachers">–</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Rooms Used</div>
+      <div class="stat-value" id="stat-rooms">–</div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="filter-group">
+      <label for="f-section">Section</label>
+      <select id="f-section"><option value="">All sections</option></select>
+    </div>
+    <div class="filter-group">
+      <label for="f-day">Day</label>
+      <select id="f-day">
+        <option value="">All days</option>
+        <option>Monday</option><option>Tuesday</option>
+        <option>Wednesday</option><option>Thursday</option><option>Friday</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="f-teacher">Teacher</label>
+      <select id="f-teacher"><option value="">All teachers</option></select>
+    </div>
+    <div class="filter-group">
+      <label for="f-search">Search</label>
+      <input type="text" id="f-search" placeholder="Course, room…">
+    </div>
+    <div class="controls-right">
+      <button class="btn-toggle active" id="btn-table" onclick="switchView('table')">Table</button>
+      <button class="btn-toggle" id="btn-grid"  onclick="switchView('grid')">Grid</button>
+    </div>
+  </div>
+
+  <!-- Table view -->
+  <div id="table-view" class="view active">
+    <div class="table-wrap">
+      <table id="main-table">
+        <thead>
+          <tr>
+            <th>Course</th><th>Section</th><th>Teacher</th>
+            <th>Room</th><th>Day</th><th>Time</th><th>Dept</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Grid view -->
+  <div id="grid-view" class="view">
+    <div class="grid-view" id="grid-container"></div>
+  </div>
+</div>
+
+<script>
+const RAW = [
+  {% for t in timetable %}
+  {
+    course_name:    "{{ t.course_name|escapejs }}",
+    course_code:    "{{ t.course_code|escapejs }}",
+    teacher_name:   "{{ t.teacher_name|escapejs }}",
+    section_name:   "{{ t.section_name|escapejs }}",
+    classroom_name: "{{ t.classroom_name|escapejs }}",
+    department:     "{{ t.department|escapejs }}",
+    day:            "{{ t.day|escapejs }}",
+    start_time:     "{{ t.start_time|escapejs }}",
+    end_time:       "{{ t.end_time|escapejs }}",
+    period:         {{ t.period }},
+    is_elective:    {{ t.is_elective|yesno:"true,false" }},
+    semester:       {{ t.semester }}
+  }{% if not forloop.last %},{% endif %}
+  {% endfor %}
+];
+
+const DAY_ORDER = ["Monday","Tuesday","Wednesday","Thursday","Friday"];
+
+(function populateFilters(){
+  const sections = [...new Set(RAW.map(r=>r.section_name))].sort();
+  const teachers = [...new Set(RAW.map(r=>r.teacher_name))].sort();
+  const sel = id => document.getElementById(id);
+
+  sections.forEach(s=>{ const o=document.createElement('option'); o.value=o.textContent=s; sel('f-section').appendChild(o); });
+  teachers.forEach(t=>{ const o=document.createElement('option'); o.value=o.textContent=t; sel('f-teacher').appendChild(o); });
+
+  document.getElementById('stat-sections').textContent = sections.length;
+  document.getElementById('stat-teachers').textContent = teachers.length;
+  document.getElementById('stat-rooms').textContent    = new Set(RAW.map(r=>r.classroom_name)).size;
+})();
+
+function filtered(){
+  const sec = document.getElementById('f-section').value.toLowerCase();
+  const day = document.getElementById('f-day').value.toLowerCase();
+  const tea = document.getElementById('f-teacher').value.toLowerCase();
+  const q   = document.getElementById('f-search').value.toLowerCase();
+  return RAW.filter(r=>
+    (!sec || r.section_name.toLowerCase()===sec) &&
+    (!day || r.day.toLowerCase()===day) &&
+    (!tea || r.teacher_name.toLowerCase()===tea) &&
+    (!q   || r.course_name.toLowerCase().includes(q) ||
+             r.classroom_name.toLowerCase().includes(q) ||
+             r.course_code.toLowerCase().includes(q))
+  );
+}
+
+function renderTable(data){
+  const tbody = document.getElementById('table-body');
+  if(!data.length){ tbody.innerHTML='<tr><td colspan="7"><div class="empty-state">No sessions match your filters.</div></td></tr>'; return; }
+  tbody.innerHTML = data.map(r=>`
+    <tr>
+      <td><span class="course-code">${r.course_code}</span> ${r.course_name}${r.is_elective?'<span class="elective-tag">Elective</span>':''}</td>
+      <td>${r.section_name} <span style="color:#9ca3af;font-size:.75rem">Sem ${r.semester}</span></td>
+      <td>${r.teacher_name}</td>
+      <td>${r.classroom_name}</td>
+      <td><span class="day-pill day-${r.day}">${r.day.slice(0,3)}</span></td>
+      <td style="white-space:nowrap">${r.start_time} – ${r.end_time}</td>
+      <td style="color:#6b7280;font-size:.78rem">${r.department}</td>
+    </tr>`).join('');
+}
+
+function renderGrid(data){
+  const container = document.getElementById('grid-container');
+  if(!data.length){ container.innerHTML='<div class="empty-state">No sessions match your filters.</div>'; return; }
+  const byDay = {}; DAY_ORDER.forEach(d=>byDay[d]=[]);
+  data.forEach(r=>{ if(byDay[r.day]) byDay[r.day].push(r); });
+  container.innerHTML = DAY_ORDER.filter(d=>byDay[d].length).map(d=>`
+    <div class="grid-day-block">
+      <div class="grid-day-header">${d}</div>
+      <div class="grid-day-slots">
+        ${byDay[d].sort((a,b)=>a.period-b.period).map(r=>`
+          <div class="slot-card">
+            <div class="sc-time">${r.start_time} – ${r.end_time}</div>
+            <div class="sc-course"><span class="course-code">${r.course_code}</span> ${r.course_name}</div>
+            <div class="sc-meta">${r.section_name} · ${r.teacher_name}<br>${r.classroom_name}</div>
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+let currentView = 'table';
+function switchView(v){
+  currentView = v;
+  document.getElementById('table-view').classList.toggle('active', v==='table');
+  document.getElementById('grid-view').classList.toggle('active',  v==='grid');
+  document.getElementById('btn-table').classList.toggle('active',  v==='table');
+  document.getElementById('btn-grid').classList.toggle('active',   v==='grid');
+  refresh();
+}
+
+function refresh(){
+  const data = filtered();
+  if(currentView==='table') renderTable(data);
+  else renderGrid(data);
+}
+
+['f-section','f-day','f-teacher'].forEach(id=>document.getElementById(id).addEventListener('change',refresh));
+document.getElementById('f-search').addEventListener('input',refresh);
+refresh();
+</script>
+</body>
+</html>

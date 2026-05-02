@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIKI Timetable — Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#0b1f3a;--navy2:#132d52;--teal:#0f6b5c;--teal2:#1a8a74;
+  --gold:#c9a84c;--gold2:#e8c96a;--cream:#faf7f0;--white:#ffffff;
+  --muted:#8899aa;--border:rgba(201,168,76,.25);
+  --error:#ff6b6b;--success:#4ecdc4;
+}
+html,body{height:100%;}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;display:flex;overflow:hidden;}
+
+.bg-layer{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 20% 10%,rgba(15,107,92,.35) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 85% 80%,rgba(201,168,76,.12) 0%,transparent 55%),var(--navy);}
+.bg-grid{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(201,168,76,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.06) 1px,transparent 1px);background-size:48px 48px;animation:gridDrift 40s linear infinite;}
+@keyframes gridDrift{from{background-position:0 0;}to{background-position:48px 48px;}}
+.orb{position:fixed;border-radius:50%;filter:blur(80px);animation:orbFloat 8s ease-in-out infinite;z-index:0;}
+.orb1{width:320px;height:320px;background:rgba(15,107,92,.3);top:-80px;left:-80px;animation-delay:0s;}
+.orb2{width:240px;height:240px;background:rgba(201,168,76,.15);bottom:10%;right:5%;animation-delay:-3s;}
+.orb3{width:180px;height:180px;background:rgba(11,31,58,.6);top:40%;left:60%;animation-delay:-5s;}
+@keyframes orbFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-30px) scale(1.05);}}
+
+.split{position:relative;z-index:1;display:flex;width:100%;min-height:100vh;}
+
+/* Left panel */
+.left-panel{flex:1;display:flex;flex-direction:column;justify-content:center;padding:4rem 5rem;border-right:1px solid var(--border);animation:panelIn .8s cubic-bezier(.22,1,.36,1) both;}
+@keyframes panelIn{from{opacity:0;transform:translateX(-40px);}to{opacity:1;transform:translateX(0);}}
+
+.back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--muted);font-size:.8rem;text-decoration:none;margin-bottom:2.5rem;transition:color .2s;}
+.back-link:hover{color:var(--gold2);}
+
+.giki-logo-wrap{display:flex;align-items:center;gap:1rem;margin-bottom:3rem;animation:fadeUp .6s .2s both;}
+.giki-logo-img{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 0 12px rgba(201,168,76,.4));}
+.giki-logo-text{display:flex;flex-direction:column;}
+.giki-logo-text .uni-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--gold);letter-spacing:.02em;line-height:1.2;}
+.giki-logo-text .uni-sub{font-size:.68rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+
+.hero-label{display:inline-flex;align-items:center;gap:.45rem;background:rgba(201,168,76,.12);border:1px solid var(--border);border-radius:20px;padding:.3rem .9rem;font-size:.72rem;font-weight:500;color:var(--gold2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.5rem;animation:fadeUp .6s .3s both;}
+.hero-label .dot{width:6px;height:6px;border-radius:50%;background:var(--gold2);animation:blink 1.5s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.15;color:var(--white);margin-bottom:1.25rem;animation:fadeUp .6s .4s both;}
+.hero-title .accent{color:var(--gold);}
+
+.hero-desc{font-size:.95rem;color:var(--muted);line-height:1.75;max-width:420px;margin-bottom:2.5rem;animation:fadeUp .6s .5s both;}
+
+.stat-row{display:flex;gap:2.5rem;animation:fadeUp .6s .6s both;}
+.stat-item .val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);}
+.stat-item .lbl{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+
+/* Right panel */
+.right-panel{width:460px;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:3rem;animation:panelIn .8s .1s cubic-bezier(.22,1,.36,1) both;}
+
+.form-card{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:2.5rem 2rem;backdrop-filter:blur(16px);}
+
+/* Messages */
+.messages{margin-bottom:1rem;}
+.msg{border-radius:8px;padding:.65rem 1rem;font-size:.8rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
+.msg.error{background:rgba(255,107,107,.12);border:1px solid rgba(255,107,107,.3);color:#ff9999;}
+.msg.success{background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.3);color:var(--success);}
+
+.tab-row{display:flex;background:rgba(255,255,255,.06);border-radius:10px;padding:4px;margin-bottom:2rem;gap:4px;}
+.tab-btn{flex:1;background:transparent;border:none;border-radius:7px;padding:.55rem 0;font-family:'DM Sans',sans-serif;font-size:.83rem;font-weight:500;color:var(--muted);cursor:pointer;transition:background .2s,color .2s;}
+.tab-btn.active{background:var(--teal);color:var(--white);}
+
+.form-group{margin-bottom:1.1rem;}
+.form-group label{display:block;font-size:.75rem;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.45rem;}
+.form-group input{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--white);outline:none;transition:border-color .2s,box-shadow .2s,background .2s;}
+.form-group input::placeholder{color:rgba(255,255,255,.25);}
+.form-group input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.15);background:rgba(255,255,255,.1);}
+
+.btn-primary{width:100%;background:linear-gradient(135deg,var(--teal),var(--teal2));border:none;border-radius:10px;padding:.85rem 1rem;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;color:var(--white);cursor:pointer;margin-top:.5rem;position:relative;overflow:hidden;transition:transform .15s,box-shadow .2s;letter-spacing:.01em;}
+.btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,.1));}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,107,92,.5);}
+.btn-primary:active{transform:translateY(0);}
+
+.divider{display:flex;align-items:center;gap:.75rem;margin:1.25rem 0;}
+.divider span{font-size:.72rem;color:var(--muted);white-space:nowrap;}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.1);}
+
+.btn-outline{width:100%;background:transparent;border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;color:var(--gold2);cursor:pointer;transition:background .2s,border-color .2s;text-decoration:none;display:block;text-align:center;}
+.btn-outline:hover{background:rgba(201,168,76,.08);border-color:var(--gold);}
+
+.form-footer{margin-top:1.5rem;text-align:center;font-size:.75rem;color:var(--muted);}
+.form-footer a{color:var(--gold2);text-decoration:none;}
+.form-footer a:hover{text-decoration:underline;}
+
+.form-panel{display:none;}
+.form-panel.active{display:block;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:900px){
+  .left-panel{display:none;}
+  .right-panel{width:100%;padding:2rem 1.5rem;}
+  body{justify-content:center;}
+}
+</style>
+</head>
+<body>
+{% load static %}
+<div class="bg-layer"></div>
+<div class="bg-grid"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<div class="split">
+  <!-- Left Hero -->
+  <div class="left-panel">
+    <a href="{% url 'landing' %}" class="back-link">← Back to Home</a>
+
+    <div class="giki-logo-wrap">
+      <img src="https://giki.edu.pk/wp-content/uploads/2025/02/giki-logo-1.png"
+           class="giki-logo-img" alt="GIKI Logo" onerror="this.style.display='none'">
+      <div class="giki-logo-text">
+        <span class="uni-name">GIKI Timetable</span>
+        <span class="uni-sub">Ghulam Ishaq Khan Institute</span>
+      </div>
+    </div>
+
+    <div class="hero-label"><span class="dot"></span> Academic Scheduling System</div>
+
+    <h1 class="hero-title">
+      Smart Timetables<br>for <span class="accent">Every Section</span>
+    </h1>
+
+    <p class="hero-desc">
+      Conflict-free schedules generated in seconds using a hybrid CSP solver —
+      no clashes, no gaps, perfectly organised for faculty and students alike.
+    </p>
+
+    <div class="stat-row">
+      <div class="stat-item"><div class="val">99+</div><div class="lbl">Courses</div></div>
+      <div class="stat-item"><div class="val">0</div><div class="lbl">Conflicts</div></div>
+      <div class="stat-item"><div class="val">&lt;2s</div><div class="lbl">Generate</div></div>
+    </div>
+  </div>
+
+  <!-- Right Auth Form -->
+  <div class="right-panel">
+    <div class="form-card">
+
+      <!-- Tab switcher -->
+      <div class="tab-row">
+        <button class="tab-btn" id="tab-login-btn" onclick="showTab('login')">Login</button>
+        <button class="tab-btn" id="tab-signup-btn" onclick="showTab('signup')">Sign Up</button>
+      </div>
+
+      <!-- Django messages -->
+      {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+        <div class="msg {% if message.tags == 'error' %}error{% else %}success{% endif %}">
+          {% if message.tags == 'error' %}⚠{% else %}✓{% endif %} {{ message }}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <!-- ── Login panel ── -->
+      <div class="form-panel" id="panel-login">
+        <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+          <input type="hidden" name="tab" value="login">
+          <div class="form-group">
+            <label>Email / Username</label>
+            <input type="text" name="username" placeholder="e.g. 2021-CS-001 or you@giki.edu.pk" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" class="btn-primary">Login to Dashboard</button>
+        </form>
+        <div class="divider"><span>or</span></div>
+        <a href="{% url 'index' %}" class="btn-outline">Continue as Guest</a>
+        <div class="form-footer">
+          Don't have an account?
+          <a href="#" onclick="showTab('signup');return false;">Sign up</a>
+        </div>
+      </div>
+
+      <!-- ── Sign-up panel ── -->
+      <div class="form-panel" id="panel-signup">
+        <form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+          <input type="hidden" name="tab" value="signup">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="full_name" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label>GIKI Email</label>
+            <input type="email" name="email" placeholder="you@giki.edu.pk" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Create a password" required>
+          </div>
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" name="password2" placeholder="Repeat your password" required>
+          </div>
+          <button type="submit" class="btn-primary">Create Account</button>
+        </form>
+        <div class="form-footer">
+          Already have an account?
+          <a href="#" onclick="showTab('login');return false;">Login</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+// Determine which tab to show on load
+const initialTab = "{{ tab|default:'login' }}" === 'signup' ? 'signup' : 'login';
+
+function showTab(tab) {
+  document.getElementById('tab-login-btn').classList.toggle('active', tab === 'login');
+  document.getElementById('tab-signup-btn').classList.toggle('active', tab === 'signup');
+  document.getElementById('panel-login').classList.toggle('active',  tab === 'login');
+  document.getElementById('panel-signup').classList.toggle('active', tab === 'signup');
+}
+
+// On load: check URL param or context var
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const t = params.get('tab') || initialTab;
+  showTab(t);
+})();
+</script>
+</body>
+</html>

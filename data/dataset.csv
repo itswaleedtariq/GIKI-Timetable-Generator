@@ -1,0 +1,335 @@
+course_id,course_name,course_code,sessions,department,teacher_id,teacher_name,section_id,section_name,semester,strength
+C001,Microprocessor Systems,CE342,3,Computer Science & Engineering,T001,Dr. Ahmed Raza,S001,CS-A,3,45
+C002,Discrete Mathematics,CS272,2,Computer Science & Engineering,T002,Dr. Usman Akram,S002,CS-C,2,33
+C003,Signals & Systems,CE313,3,Computer Science & Engineering,T003,Dr. Faisal Shafait,S003,CS-D,3,43
+C004,Design & Analysis of Algorithms,CS322,3,Computer Science & Engineering,T004,Dr. Sohail Aslam,S004,CS-D,3,39
+C005,Natural Language Processing,CS478,3,Computer Science & Engineering,T005,Dr. Naveed Iqbal,S005,CS-E,4,50
+C006,Deep Learning,CS464,3,Computer Science & Engineering,T006,Dr. Waqar Mahmood,S006,CS-D,4,47
+C007,Circuit Analysis,CE222,3,Computer Science & Engineering,T007,Dr. Kashif Javed,S007,CS-E,2,50
+C008,Computer Organization & Assembly,CS232,3,Computer Science & Engineering,T008,Dr. Zubair Nawaz,S008,CS-F,2,30
+C009,Circuit Analysis,CE222,3,Computer Science & Engineering,T007,Dr. Kashif Javed,S009,CS-F,2,48
+C010,Software Requirements Engineering,SE211,3,Computer Science & Engineering,T009,Dr. Imran Malik,S010,CS-A,2,43
+C011,Signals & Systems,CE313,3,Computer Science & Engineering,T003,Dr. Faisal Shafait,S011,CS-E,3,44
+C012,Electronic Devices & Circuits,CE231,3,Computer Science & Engineering,T010,Dr. Saad Razzaq,S012,CS-A,2,43
+C013,Natural Language Processing,CS478,1,Computer Science & Engineering,T005,Dr. Naveed Iqbal,S013,CS-A,4,38
+C014,Software Project Management,CS392,3,Computer Science & Engineering,T011,Mr. Bilal Hassan,S014,CS-B,3,30
+C015,Computer Graphics,CS378,3,Computer Science & Engineering,T012,Ms. Amna Shafiq,S015,CS-F,3,33
+C016,Computer Organization & Assembly,CS232,3,Computer Science & Engineering,T008,Dr. Zubair Nawaz,S016,CS-C,2,32
+C017,Electronics-II,EE241,3,Electrical Engineering,T101,Dr. Shahid Mehmood,S017,EE-A,2,49
+C018,Electronics-I,EE231,3,Electrical Engineering,T102,Dr. Tariq Javaid,S018,EE-A,2,42
+C019,Electronics-II,EE241,3,Electrical Engineering,T101,Dr. Shahid Mehmood,S019,EE-B,2,33
+C020,Electronics-I,EE231,3,Electrical Engineering,T102,Dr. Tariq Javaid,S020,EE-B,2,50
+C021,Power Electronics,EE413,3,Electrical Engineering,T103,Dr. Rehan Ullah,S021,EE-A,4,38
+C022,High Voltage Engineering,EE425,3,Electrical Engineering,T104,Dr. Nasir Saleem,S022,EE-A,4,38
+C023,Wireless Communications,EE454,3,Electrical Engineering,T105,Dr. Muhammad Usman,S023,EE-A,4,44
+C024,Digital Signal Processing,EE361,3,Electrical Engineering,T106,Dr. Amir Hussain,S024,EE-A,3,42
+C025,Electromagnetic Theory,EE223,3,Electrical Engineering,T107,Dr. Zafar Abbas,S025,EE-B,2,45
+C026,Power Systems,EE332,3,Electrical Engineering,T108,Dr. Nadeem Iqbal,S026,EE-A,3,44
+C027,Communication Systems,EE351,3,Electrical Engineering,T109,Dr. Omer Saleem,S027,EE-A,3,48
+C028,Digital Signal Processing,EE361,3,Electrical Engineering,T106,Dr. Amir Hussain,S028,EE-B,3,45
+C029,Power Systems,EE332,3,Electrical Engineering,T108,Dr. Nadeem Iqbal,S029,EE-C,3,43
+C030,Communication Systems,EE351,3,Electrical Engineering,T109,Dr. Omer Saleem,S030,EE-C,3,34
+C031,Control Systems,EE313,3,Electrical Engineering,T110,Mr. Kamran Ali,S031,EE-A,3,48
+C032,Electromagnetic Theory,EE223,3,Electrical Engineering,T107,Dr. Zafar Abbas,S032,EE-A,2,41
+C033,Instrumentation & Measurement,EE314,2,Electrical Engineering,T111,Dr. Asif Raza,S033,EE-A,3,38
+C034,Electrical Machines,EE212,3,Electrical Engineering,T112,Ms. Hira Baig,S034,EE-B,2,42
+C035,Power Systems,EE332,3,Electrical Engineering,T108,Dr. Nadeem Iqbal,S035,EE-B,3,30
+C036,Electrical Machines,EE212,3,Electrical Engineering,T112,Ms. Hira Baig,S036,EE-A,2,40
+C037,Antenna & Microwave Engg,EE428,3,Electrical Engineering,T101,Dr. Shahid Mehmood,S037,EE-A,4,30
+C038,Engineering Physics,PH101,3,Electrical Engineering,T102,Dr. Tariq Javaid,S038,EE-D+E,1,49
+C039,Calculus II,MT102,1,Electrical Engineering,T103,Dr. Rehan Ullah,S039,EE-G,1,48
+C040,Calculus II,MT102,1,Electrical Engineering,T103,Dr. Rehan Ullah,S040,EE-D,1,41
+C041,Engineering Economics,ES361,3,Engineering Sciences,T201,Dr. Junaid Ahmed,S041,ES-A,3,37
+C042,Calculus I,MT101,3,Engineering Sciences,T202,Dr. Noman Alam,S042,ES-A,1,44
+C043,Linear Algebra,MT203,3,Engineering Sciences,T203,Dr. Aamir Shehzad,S043,ES-A,2,30
+C044,Finite Element Methods,ES443,3,Engineering Sciences,T204,Dr. Rashid Khan,S044,ES-A,4,38
+C045,Optimization Techniques,ES445,3,Engineering Sciences,T205,Dr. Waseem Abbas,S045,ES-A,4,47
+C046,Probability & Statistics,ES325,3,Engineering Sciences,T206,Ms. Sana Ullah,S046,ES-A,3,47
+C047,Computational Fluid Dynamics,ES446,3,Engineering Sciences,T207,Dr. Pervaiz Ahmed,S047,ES-A,4,38
+C048,Advanced Engineering Mathematics,ES447,3,Engineering Sciences,T208,Dr. Khalid Mehmood,S048,ES-A,4,31
+C049,Calculus II,MT102,2,Engineering Sciences,T103,Dr. Rehan Ullah,S049,ES-J,1,43
+C050,Engineering Drawing,ES111,3,Engineering Sciences,T201,Dr. Junaid Ahmed,S050,ES-H,1,50
+C051,Engineering Drawing,ES111,3,Engineering Sciences,T201,Dr. Junaid Ahmed,S051,ES-F,1,37
+C052,Engineering Drawing,ES111,3,Engineering Sciences,T201,Dr. Junaid Ahmed,S052,ES-E,1,32
+C053,Engineering Drawing,ES111,3,Engineering Sciences,T201,Dr. Junaid Ahmed,S053,ES-G,1,42
+C054,Engineering Drawing,ES111,3,Engineering Sciences,T201,Dr. Junaid Ahmed,S054,ES-I+J,1,46
+C055,Software Engineering,CS292,1,Computer Science & Engineering,T013,Dr. Hamid Khan,S055,CS-C,2,33
+C056,Advanced Data Science,DS462,3,Computer Science & Engineering,T014,Mr. Raheel Ahmed,S056,CS-A,4,32
+C057,Information Security,CS444,3,Computer Science & Engineering,T015,Dr. Salman Qadri,S057,CS-A,4,44
+C058,Reinforcement Learning,AI311,3,Computer Science & Engineering,T001,Dr. Ahmed Raza,S058,CS-A,3,45
+C059,Special Topics in Data Science,DS3XX,3,Computer Science & Engineering,T002,Dr. Usman Akram,S059,CS-A,3,49
+C060,Theory of Automata,CS343,3,Computer Science & Engineering,T003,Dr. Faisal Shafait,S060,CS-A,3,39
+C061,Signals & Systems,CE313,3,Computer Science & Engineering,T003,Dr. Faisal Shafait,S061,CS-B,3,43
+C062,Circuit Analysis,CE222,3,Computer Science & Engineering,T007,Dr. Kashif Javed,S062,CS-C,2,50
+C063,Computer Networks,CS324,3,Computer Science & Engineering,T004,Dr. Sohail Aslam,S063,CS-C,3,39
+C064,Compiler Construction,CS354,3,Computer Science & Engineering,T005,Dr. Naveed Iqbal,S064,CS-C,3,47
+C065,Deep Learning,CS464,3,Computer Science & Engineering,T006,Dr. Waqar Mahmood,S065,CS-A,4,39
+C066,Computer Organization & Assembly,CS232,3,Computer Science & Engineering,T008,Dr. Zubair Nawaz,S066,CS-E,2,42
+C067,Neural Networks,AI221,3,Computer Science & Engineering,T006,Dr. Waqar Mahmood,S067,CS-A,2,41
+C068,Circuit Analysis,CE222,3,Computer Science & Engineering,T007,Dr. Kashif Javed,S068,CS-D,2,36
+C069,Big Data Analytics,DS351,3,Computer Science & Engineering,T007,Dr. Kashif Javed,S069,CS-A,3,33
+C070,Advanced Database Systems,CS411,2,Computer Science & Engineering,T008,Dr. Zubair Nawaz,S070,CS-A,4,37
+C071,Calculus II,MT102,3,Engineering Sciences,T103,Dr. Rehan Ullah,S071,ES-F,1,36
+C072,Communication Systems,EE351,3,Electrical Engineering,T109,Dr. Omer Saleem,S072,EE-B,3,37
+C073,Engineering Drawing,ES111,3,Engineering Sciences,T201,Dr. Junaid Ahmed,S073,ES-D,1,42
+C074,Computer Organization & Assembly,CS232,1,Computer Science & Engineering,T008,Dr. Zubair Nawaz,S074,CS-A,2,33
+C075,Knowledge Representation,AI202,3,Computer Science & Engineering,T009,Dr. Imran Malik,S075,CS-A,2,30
+C076,Computer Organization & Assembly,CS232,3,Computer Science & Engineering,T008,Dr. Zubair Nawaz,S076,CS-B,2,47
+C077,Mobile Application Development,CS424,1,Computer Science & Engineering,T010,Dr. Saad Razzaq,S077,CS-A,4,31
+C078,Computer Organization & Assembly,CS232,3,Computer Science & Engineering,T008,Dr. Zubair Nawaz,S078,CS-D,2,35
+C079,Ethical Hacking,CY413,3,Computer Science & Engineering,T011,Mr. Bilal Hassan,S079,CS-A,4,48
+C080,Embedded Systems,CE453,3,Computer Science & Engineering,T012,Ms. Amna Shafiq,S080,CS-A,4,31
+C081,Network Security,CY211,3,Computer Science & Engineering,T013,Dr. Hamid Khan,S081,CS-A,2,38
+C082,Software Project Management,CS392,3,Computer Science & Engineering,T011,Mr. Bilal Hassan,S082,CS-E,3,44
+C083,Cryptography,CY321,3,Computer Science & Engineering,T014,Mr. Raheel Ahmed,S083,CS-A,3,44
+C084,Software Project Management,CS392,3,Computer Science & Engineering,T011,Mr. Bilal Hassan,S084,CS-F,3,34
+C085,Physical Chemistry,CH212,3,Chemical Engineering,T701,Dr. Zahid Nawaz,S085,CH-A,2,38
+C086,Inorganic Chemistry,CH241,3,Chemical Engineering,T702,Dr. Adnan Iqbal,S086,CH-A,2,46
+C087,Analytical Chemistry,CH214,3,Chemical Engineering,T703,Dr. Farrukh Mehmood,S087,CH-A,2,46
+C088,Organic Chemistry,CH201,3,Chemical Engineering,T704,Ms. Sadia Zulfiqar,S088,CH-A,2,41
+C089,Polymer Chemistry,CH331,1,Chemical Engineering,T705,Dr. Iqbal Ahmad,S089,CH-A,3,35
+C090,Electrochemistry,CH342,2,Chemical Engineering,T701,Dr. Zahid Nawaz,S090,CH-A,3,48
+C091,Reaction Kinetics,CH322,3,Chemical Engineering,T702,Dr. Adnan Iqbal,S091,CH-A,3,45
+C092,Separation Processes,CH441,3,Chemical Engineering,T703,Dr. Farrukh Mehmood,S092,CH-A,4,31
+C093,Chemical Engineering Principles,CH412,3,Chemical Engineering,T704,Ms. Sadia Zulfiqar,S093,CH-A,4,50
+C094,Transport Phenomena,CH462,3,Chemical Engineering,T705,Dr. Iqbal Ahmad,S094,CH-A,4,38
+C095,Chemical Reactor Design,CH471,3,Chemical Engineering,T701,Dr. Zahid Nawaz,S095,CH-A,4,50
+C096,Process Control,CH419,3,Chemical Engineering,T702,Dr. Adnan Iqbal,S096,CH-A,4,39
+C097,Calculus II,MT102,3,Engineering Sciences,T103,Dr. Rehan Ullah,S097,ES-H,1,33
+C098,Calculus II,MT102,3,Engineering Sciences,T103,Dr. Rehan Ullah,S098,ES-I+J,1,36
+C099,Programming Fundamentals,CS112,2,Computer Science & Engineering,T015,Dr. Salman Qadri,S099,CS-B,1,32
+C100,Introduction to Computing,CS101,2,Computer Science & Engineering,T001,Dr. Ahmed Raza,S100,CS-A,1,39
+C101,Programming Fundamentals,CS112,2,Computer Science & Engineering,T015,Dr. Salman Qadri,S101,CS-J,1,35
+C102,Programming Fundamentals,CS112,2,Computer Science & Engineering,T015,Dr. Salman Qadri,S102,CS-D,1,37
+C103,Programming Fundamentals,CS112,2,Computer Science & Engineering,T015,Dr. Salman Qadri,S103,CS-F,1,34
+C104,Programming Fundamentals,CS112,2,Computer Science & Engineering,T015,Dr. Salman Qadri,S104,CS-G2,1,44
+C105,General Chemistry,CH101,2,Chemical Engineering,T703,Dr. Farrukh Mehmood,S105,CH-G,1,47
+C106,Chemistry Lab,CH161,1,Chemical Engineering,T704,Ms. Sadia Zulfiqar,S106,CH-I,1,43
+C107,Functional English,HM102,2,Management Sciences,T501,Dr. Rana Shahid,S107,MGS-K,1,49
+C108,Principles of Management,MS102,3,Management Sciences,T502,Dr. Asma Arif,S108,MGS-C,1,48
+C109,Functional English,HM102,2,Management Sciences,T501,Dr. Rana Shahid,S109,MGS-L,1,35
+C110,Advanced Marketing,MS434,3,Management Sciences,T503,Dr. Kamil Hasan,S110,MGS-B,4,44
+C111,Management Science Project,MS491,3,Management Sciences,T504,Dr. Sana Fatima,S111,MGS-A,4,42
+C112,Project Management,HM324,3,Management Sciences,T505,Mr. Adnan Butt,S112,MGS-A,3,37
+C113,Technical Writing,HM211,1,Management Sciences,T506,Ms. Nida Rehman,S113,MGS-C,2,41
+C114,Operations Management,MS253,3,Management Sciences,T507,Dr. Zara Malik,S114,MGS-A,2,48
+C115,Financial Management,MS233,3,Management Sciences,T508,Mr. Tariq Saleem,S115,MGS-A,2,44
+C116,Communication Skills,HM112,2,Management Sciences,T509,Dr. Uzma Khan,S116,MGS-A,1,49
+C117,Organizational Behavior,MS211,3,Management Sciences,T510,Ms. Bushra Noor,S117,MGS-B,2,36
+C118,Functional English,HM102,2,Management Sciences,T501,Dr. Rana Shahid,S118,MGS-A,1,44
+C119,Principles of Management,MS102,3,Management Sciences,T502,Dr. Asma Arif,S119,MGS-A,1,45
+C120,Financial Accounting,MS141,3,Management Sciences,T511,Dr. Faisal Iqbal,S120,MGS-B,1,49
+C121,Islamic Studies,HM121,2,Management Sciences,T512,Mr. Hamza Raza,S121,MGS-B,1,48
+C122,Professional Ethics,HM223,2,Management Sciences,T501,Dr. Rana Shahid,S122,MGS-B,2,41
+C123,Principles of Management,MS102,3,Management Sciences,T502,Dr. Asma Arif,S123,MGS-B,1,39
+C124,Business Communication,MS130,1,Management Sciences,T502,Dr. Asma Arif,S124,MGS-C,1,42
+C125,Functional English,HM102,2,Management Sciences,T501,Dr. Rana Shahid,S125,MGS-B,1,41
+C126,Financial Accounting,MS141,3,Management Sciences,T511,Dr. Faisal Iqbal,S126,MGS-C,1,49
+C127,Human Resource Management,MS234,3,Management Sciences,T503,Dr. Kamil Hasan,S127,MGS-A,2,43
+C128,Functional English,HM102,2,Management Sciences,T501,Dr. Rana Shahid,S128,MGS-H,1,34
+C129,Financial Accounting,MS141,3,Management Sciences,T511,Dr. Faisal Iqbal,S129,MGS-A,1,48
+C130,Functional English,HM102,3,Management Sciences,T501,Dr. Rana Shahid,S130,MGS-J,1,50
+C131,Functional English,HM102,2,Management Sciences,T501,Dr. Rana Shahid,S131,MGS-N,1,45
+C132,Business Research Methods,MS447,3,Management Sciences,T504,Dr. Sana Fatima,S132,MGS-A,4,49
+C133,Pakistan Studies,HM221,2,Management Sciences,T505,Mr. Adnan Butt,S133,MGS-A,2,35
+C134,Functional English,HM102,2,Management Sciences,T501,Dr. Rana Shahid,S134,MGS-F,1,46
+C135,Functional English,HM102,2,Management Sciences,T501,Dr. Rana Shahid,S135,MGS-E,1,33
+C136,Business Statistics,MS291,2,Management Sciences,T506,Ms. Nida Rehman,S136,MGS-B,2,44
+C137,Islamic Studies,HM121,2,Management Sciences,T512,Mr. Hamza Raza,S137,MGS-C,1,43
+C138,Microeconomics,MS151,3,Management Sciences,T507,Dr. Zara Malik,S138,MGS-B,1,48
+C139,Entrepreneurship & Innovation,MS333,3,Management Sciences,T508,Mr. Tariq Saleem,S139,MGS-B,3,39
+C140,Microeconomics,MS151,3,Management Sciences,T507,Dr. Zara Malik,S140,MGS-A,1,30
+C141,Engineering Management,HM321,3,Management Sciences,T509,Dr. Uzma Khan,S141,MGS-A,3,39
+C142,Operations Management,MS253,3,Management Sciences,T507,Dr. Zara Malik,S142,MGS-B,2,48
+C143,Corporate Finance,MS358,3,Management Sciences,T510,Ms. Bushra Noor,S143,MGS-A,3,39
+C144,Entrepreneurship & Innovation,MS333,3,Management Sciences,T508,Mr. Tariq Saleem,S144,MGS-A,3,41
+C145,Supply Chain Management,MS325,3,Management Sciences,T511,Dr. Faisal Iqbal,S145,MGS-A,3,36
+C146,Marketing Management,MS203,3,Management Sciences,T512,Mr. Hamza Raza,S146,MGS-B,2,44
+C147,Marketing Management,MS203,3,Management Sciences,T512,Mr. Hamza Raza,S147,MGS-A,2,32
+C148,Finite Element Analysis,ME333,3,Mechanical Engineering,T301,Dr. Iqbal Hussain,S148,ME-B,3,41
+C149,Advanced Thermodynamics,ME405,2,Mechanical Engineering,T302,Dr. Manzoor Ahmed,S149,ME-A,4,31
+C150,Advanced Manufacturing,ME471,4,Mechanical Engineering,T303,Dr. Javed Iqbal,S150,ME-A,4,47
+C151,Finite Element Analysis,ME333,3,Mechanical Engineering,T301,Dr. Iqbal Hussain,S151,ME-A,3,36
+C152,Heat Transfer,ME315,4,Mechanical Engineering,T304,Dr. Tahir Abbas,S152,ME-B,3,49
+C153,Heat Transfer,ME315,4,Mechanical Engineering,T304,Dr. Tahir Abbas,S153,ME-A,3,30
+C154,Machine Design,ME232,3,Mechanical Engineering,T305,Dr. Asim Iqbal,S154,ME-B,2,42
+C155,Machine Design,ME232,3,Mechanical Engineering,T305,Dr. Asim Iqbal,S155,ME-A,2,38
+C156,Control of Mechanical Systems,ME322,3,Mechanical Engineering,T306,Dr. Naeem Butt,S156,ME-B,3,50
+C157,Control of Mechanical Systems,ME322,3,Mechanical Engineering,T306,Dr. Naeem Butt,S157,ME-A,3,34
+C158,Manufacturing Processes,ME212,3,Mechanical Engineering,T307,Dr. Rizwan Khan,S158,ME-A,2,46
+C159,Technical Writing,HM211,1,Mechanical Engineering,T506,Ms. Nida Rehman,S159,ME-C (ME),2,31
+C160,Manufacturing Processes,ME212,3,Mechanical Engineering,T307,Dr. Rizwan Khan,S160,ME-B,2,45
+C161,Computational Mechanics,ME453,2,Mechanical Engineering,T308,Mr. Zeeshan Tariq,S161,ME-A,4,36
+C162,Engineering Drawing,ES111,3,Engineering Sciences,T201,Dr. Junaid Ahmed,S162,ES-A,1,41
+C163,Calculus II,MT102,3,Engineering Sciences,T103,Dr. Rehan Ullah,S163,ES-A,1,47
+C164,Engineering Mechanics,ES205,3,Engineering Sciences,T202,Dr. Noman Alam,S164,ES-A,2,46
+C165,Surface Engineering,MM393,3,Materials & Chemical Engineering,T401,Dr. Shahzad Maqsood,S165,MCE-A,3,32
+C166,Advanced Composites,MM455,3,Materials & Chemical Engineering,T402,Dr. Iftikhar Ahmed,S166,MCE-A,4,44
+C167,Materials Characterization,MM469,3,Materials & Chemical Engineering,T403,Dr. Bilal Zafar,S167,MCE-A,4,45
+C168,Biomaterials,MM451,2,Materials & Chemical Engineering,T404,Dr. Farrukh Shahzad,S168,MCE-A,4,40
+C169,Senior Design Project (MCE),MM499,3,Materials & Chemical Engineering,T405,Dr. Habib ur Rehman,S169,MCE-A,4,40
+C170,Physical Metallurgy,MM222,3,Materials & Chemical Engineering,T406,Ms. Rabia Naz,S170,MCE-A,2,45
+C171,Ceramics & Composites,MM233,3,Materials & Chemical Engineering,T401,Dr. Shahzad Maqsood,S171,MCE-A,2,39
+C172,Business Statistics,MS291,2,Management Sciences,T506,Ms. Nida Rehman,S172,MGS-A,2,40
+C173,Advanced Marketing,MS434,3,Management Sciences,T503,Dr. Kamil Hasan,S173,MGS-A,4,35
+C174,Entrepreneurship,HM322,3,Management Sciences,T501,Dr. Rana Shahid,S174,MGS-A,3,39
+C175,Entrepreneurship,HM322,3,Management Sciences,T501,Dr. Rana Shahid,S175,MGS-B,3,49
+C176,Engineering Physics,PH101,3,Engineering Sciences,T102,Dr. Tariq Javaid,S176,ES-C,1,39
+C177,Calculus II,MT102,3,Engineering Sciences,T103,Dr. Rehan Ullah,S177,ES-C,1,33
+C178,Engineering Drawing,ES111,3,Engineering Sciences,T201,Dr. Junaid Ahmed,S178,ES-C,1,33
+C179,Introduction to Materials,MM101,2,Materials & Chemical Engineering,T402,Dr. Iftikhar Ahmed,S179,MCE-A,1,36
+C180,VLSI Design,CE408,3,Computer Science & Engineering,T002,Dr. Usman Akram,S180,CS-A,4,36
+C181,Signals & Systems,CE313,3,Computer Science & Engineering,T003,Dr. Faisal Shafait,S181,CS-A,3,39
+C182,Signals & Systems,CE313,3,Computer Science & Engineering,T003,Dr. Faisal Shafait,S182,CS-C,3,31
+C183,Artificial Intelligence,CS361,3,Computer Science & Engineering,T003,Dr. Faisal Shafait,S183,CS-B,3,42
+C184,Distributed Systems,CS455,3,Computer Science & Engineering,T004,Dr. Sohail Aslam,S184,CS-A,4,37
+C185,Object Oriented Programming,CS202,1,Computer Science & Engineering,T005,Dr. Naveed Iqbal,S185,CS-A,2,47
+C186,Software Project Management,CS392,3,Computer Science & Engineering,T011,Mr. Bilal Hassan,S186,CS-D,3,50
+C187,Computer Graphics,CS378,2,Computer Science & Engineering,T012,Ms. Amna Shafiq,S187,CS-C,3,40
+C188,Machine Learning,CS375/AI375,3,Computer Science & Engineering,T006,Dr. Waqar Mahmood,S188,CS-A,3,34
+C189,Renewable Energy Systems,EE421,2,Electrical Engineering,T104,Dr. Nasir Saleem,S189,EE-A,4,32
+C190,Renewable Energy Systems,EE421,2,Electrical Engineering,T104,Dr. Nasir Saleem,S190,EE-B,4,32
+C191,Smart Grid Technologies,EE466,3,Electrical Engineering,T105,Dr. Muhammad Usman,S191,EE-A,4,37
+C192,Digital Signal Processing,EE361,3,Electrical Engineering,T106,Dr. Amir Hussain,S192,EE-C,3,40
+C193,Programming Fundamentals,CS112,2,Computer Science & Engineering,T015,Dr. Salman Qadri,S193,CS-E,1,31
+C194,Business Statistics,MS291 EE,2,Management Sciences,T502,Dr. Asma Arif,S194,MGS-A,2,41
+C195,Environmental Engineering,ES371,3,Engineering Sciences,T203,Dr. Aamir Shehzad,S195,ES-A,3,47
+C196,Numerical Methods,ES322,3,Engineering Sciences,T204,Dr. Rashid Khan,S196,ES-A,3,30
+C197,Calculus II,MT102,3,Engineering Sciences,T103,Dr. Rehan Ullah,S197,ES-B,1,40
+C198,Operations Research,ES341,3,Engineering Sciences,T205,Dr. Waseem Abbas,S198,ES-A,3,34
+C199,Engineering Drawing,ES111,3,Engineering Sciences,T201,Dr. Junaid Ahmed,S199,ES-B,1,31
+C200,Structural Analysis,CV202,1,Civil Engineering,T601,Dr. Sarfraz Hussain,S200,CVE-A,2,31
+C201,Highway Engineering,CV314,1,Civil Engineering,T602,Dr. Rashid Mehmood,S201,CVE-A,3,33
+C202,Structural Dynamics,CV361,1,Civil Engineering,T603,Dr. Kamran Latif,S202,CVE-A,3,31
+C203,Highway Engineering,CV314,1,Civil Engineering,T602,Dr. Rashid Mehmood,S203,CVE-B,3,31
+C204,Software Project Management,CS392,2,Computer Science & Engineering,T011,Mr. Bilal Hassan,S204,CS-C,3,49
+C205,Database Systems,CS327,3,Computer Science & Engineering,T007,Dr. Kashif Javed,S205,CS-A,3,31
+C206,Statistical Inference,DS221,3,Computer Science & Engineering,T008,Dr. Zubair Nawaz,S206,CS-A,2,49
+C207,Operating Systems,CS316,3,Computer Science & Engineering,T009,Dr. Imran Malik,S207,CS-C,3,45
+C208,Software Project Management,CS392,3,Computer Science & Engineering,T011,Mr. Bilal Hassan,S208,CS-A,3,31
+C209,Data Science Fundamentals,DS211,3,Computer Science & Engineering,T010,Dr. Saad Razzaq,S209,CS-A,2,41
+C210,Data Structures,CS222,3,Computer Science & Engineering,T011,Mr. Bilal Hassan,S210,CS-B,2,38
+C211,Deep Learning,CS464,3,Computer Science & Engineering,T006,Dr. Waqar Mahmood,S211,CS-C,4,34
+C212,Digital Logic Design,CS224,3,Computer Science & Engineering,T012,Ms. Amna Shafiq,S212,CS-C,2,31
+C213,Circuit Analysis,CE222,3,Computer Science & Engineering,T007,Dr. Kashif Javed,S213,CS-A,2,41
+C214,Digital Communication,CE361,3,Computer Science & Engineering,T013,Dr. Hamid Khan,S214,CS-A,3,36
+C215,Data Visualization,DS471,3,Computer Science & Engineering,T014,Mr. Raheel Ahmed,S215,CS-A,4,47
+C216,Robotics & Automation,EE486,3,Electrical Engineering,T106,Dr. Amir Hussain,S216,EE-A,4,33
+C217,Introduction to Cybersecurity,CY201,3,Computer Science & Engineering,T015,Dr. Salman Qadri,S217,CS-A,2,44
+C218,Mobile Application Development,CS424,2,Computer Science & Engineering,T010,Dr. Saad Razzaq,S218,CS-C,4,39
+C219,Software Testing & Quality,SE351,3,Computer Science & Engineering,T001,Dr. Ahmed Raza,S219,CS-A,3,43
+C220,Signals & Systems,CE313,3,Computer Science & Engineering,T003,Dr. Faisal Shafait,S220,CS-F,3,33
+C221,Computer Organization & Assembly,CS232,2,Computer Science & Engineering,T008,Dr. Zubair Nawaz,S221,CS-A,2,40
+C222,Special Topics CE,CE4XX,3,Computer Science & Engineering,T002,Dr. Usman Akram,S222,CS-A,4,43
+C223,Computer Vision,CS472,1,Computer Science & Engineering,T003,Dr. Faisal Shafait,S223,CS-C,4,39
+C224,Chemical Thermodynamics,CH311,1,Chemical Engineering,T705,Dr. Iqbal Ahmad,S224,CH-A,3,46
+C225,Geotechnical Engineering,CV231/CV482,1,Civil Engineering,T604,Dr. Khurram Shahzad,S225,CVE-A,2,34
+C226,Programming Fundamentals,CS112,2,Computer Science & Engineering,T015,Dr. Salman Qadri,S226,CS-G1,1,45
+C227,Programming Fundamentals,CS112,2,Computer Science & Engineering,T015,Dr. Salman Qadri,S227,CS-H,1,42
+C228,Computer Graphics,CS378,2,Computer Science & Engineering,T012,Ms. Amna Shafiq,S228,CS-E,3,36
+C229,Cloud Computing,CS452,4,Computer Science & Engineering,T004,Dr. Sohail Aslam,S229,CS-A,4,49
+C230,Digital Forensics,CY461,3,Computer Science & Engineering,T005,Dr. Naveed Iqbal,S230,CS-A,4,40
+C231,Special Topics in Cybersecurity,CY3XX,3,Computer Science & Engineering,T006,Dr. Waqar Mahmood,S231,CS-A,3,49
+C232,Programming Fundamentals,CS112,2,Computer Science & Engineering,T015,Dr. Salman Qadri,S232,CS-I,1,38
+C233,General Chemistry,CH101,2,Chemical Engineering,T703,Dr. Farrukh Mehmood,S233,CH-I,1,49
+C234,General Chemistry,CH101,1,Chemical Engineering,T703,Dr. Farrukh Mehmood,S234,CH-H,1,32
+C235,General Chemistry,CH101,2,Chemical Engineering,T703,Dr. Farrukh Mehmood,S235,CH-F,1,40
+C236,Functional English,HM102,2,Management Sciences,T501,Dr. Rana Shahid,S236,MGS-M,1,34
+C237,Functional English,HM102 L Lab,1,Management Sciences,T503,Dr. Kamil Hasan,S237,MGS-A,1,45
+C238,Business Communication,MS130,1,Management Sciences,T502,Dr. Asma Arif,S238,MGS-A,1,38
+C239,Management Science Project,MS491,3,Management Sciences,T504,Dr. Sana Fatima,S239,MGS-B,4,30
+C240,Organizational Behavior,MS211,3,Management Sciences,T510,Ms. Bushra Noor,S240,MGS-A,2,46
+C241,Communication Skills,HM112,2,Management Sciences,T509,Dr. Uzma Khan,S241,MGS-B,1,50
+C242,Functional English,HM102 A Lab,1,Management Sciences,T504,Dr. Sana Fatima,S242,MGS-A,1,36
+C243,Investment Analysis,MS356,3,Management Sciences,T505,Mr. Adnan Butt,S243,MGS-B,3,40
+C244,Microeconomics,MS151,3,Management Sciences,T507,Dr. Zara Malik,S244,MGS-C,1,49
+C245,Communication Skills,HM112,2,Management Sciences,T509,Dr. Uzma Khan,S245,MGS-C,1,39
+C246,Functional English,HM102,2,Management Sciences,T501,Dr. Rana Shahid,S246,MGS-C,1,32
+C247,Functional English,HM102,2,Management Sciences,T501,Dr. Rana Shahid,S247,MGS-G,1,49
+C248,Functional English,HM102,2,Management Sciences,T501,Dr. Rana Shahid,S248,MGS-I,1,50
+C249,Functional English,HM102 J Lab,1,Management Sciences,T506,Ms. Nida Rehman,S249,MGS-A,1,43
+C250,Functional English,HM102 E Lab,1,Management Sciences,T507,Dr. Zara Malik,S250,MGS-A,1,31
+C251,Technical Writing,HM211,2,Management Sciences,T506,Ms. Nida Rehman,S251,MGS-A (AI),2,47
+C252,Technical Writing,HM211,1,Management Sciences,T506,Ms. Nida Rehman,S252,MGS-D (CVE),2,39
+C253,Business Capstone,MS492,3,Management Sciences,T508,Mr. Tariq Saleem,S253,MGS-A,4,46
+C254,Human Resource Management,MS234,3,Management Sciences,T503,Dr. Kamil Hasan,S254,MGS-B,2,33
+C255,Financial Management,MS233,3,Management Sciences,T508,Mr. Tariq Saleem,S255,MGS-B,2,36
+C256,Accounting & Finance,AF453,3,Management Sciences,T509,Dr. Uzma Khan,S256,MGS-A,4,46
+C257,Investment Analysis,MS356,3,Management Sciences,T505,Mr. Adnan Butt,S257,MGS-A,3,35
+C258,Strategic Management,MS303,3,Management Sciences,T510,Ms. Bushra Noor,S258,MGS-A,3,40
+C259,Strategic Management,MS303,3,Management Sciences,T510,Ms. Bushra Noor,S259,MGS-B,3,36
+C260,Research Proposal Writing,SC464,3,Management Sciences,T511,Dr. Faisal Iqbal,S260,MGS-A,4,31
+C261,Scientific Writing,SC463,3,Management Sciences,T512,Mr. Hamza Raza,S261,MGS-A,4,39
+C262,Technology Management,EM434,3,Management Sciences,T501,Dr. Rana Shahid,S262,MGS-A,4,37
+C263,Combustion Engineering,ME404,2,Mechanical Engineering,T301,Dr. Iqbal Hussain,S263,ME-A,4,45
+C264,Robotics,ME474,3,Mechanical Engineering,T302,Dr. Manzoor Ahmed,S264,ME-A,4,47
+C265,Thermodynamics,ME205,1,Mechanical Engineering,T303,Dr. Javed Iqbal,S265,ME-A,2,31
+C266,Thermodynamics,ME205,1,Mechanical Engineering,T303,Dr. Javed Iqbal,S266,ME-B,2,35
+C267,Mechatronics,ME424,2,Mechanical Engineering,T304,Dr. Tahir Abbas,S267,ME-A,4,50
+C268,Fluid Mechanics,ME213,2,Mechanical Engineering,T305,Dr. Asim Iqbal,S268,ME-B,2,39
+C269,Fluid Mechanics,ME213,3,Mechanical Engineering,T305,Dr. Asim Iqbal,S269,ME-A,2,40
+C270,Automotive Engineering,ME468,3,Mechanical Engineering,T306,Dr. Naeem Butt,S270,ME-A,4,41
+C271,Mechanical Behavior of Materials,MM232,3,Materials & Chemical Engineering,T403,Dr. Bilal Zafar,S271,MCE-A,2,44
+C272,Polymer Science,MM353,3,Materials & Chemical Engineering,T404,Dr. Farrukh Shahzad,S272,MCE-A,3,49
+C273,Phase Transformations,MM362,3,Materials & Chemical Engineering,T405,Dr. Habib ur Rehman,S273,MCE-A,3,40
+C274,Materials Thermodynamics,MM201,3,Materials & Chemical Engineering,T406,Ms. Rabia Naz,S274,MCE-A,2,46
+C275,Corrosion Engineering,MM352,3,Materials & Chemical Engineering,T401,Dr. Shahzad Maqsood,S275,MCE-A,3,47
+C276,Industrial Metallurgy,MM497,3,Materials & Chemical Engineering,T402,Dr. Iftikhar Ahmed,S276,MCE-A,4,45
+C277,Materials Design Project,MM495,1,Materials & Chemical Engineering,T403,Dr. Bilal Zafar,S277,MCE-A,4,34
+C278,Introduction to Materials,MM101,2,Materials & Chemical Engineering,T402,Dr. Iftikhar Ahmed,S278,MCE-B,1,44
+C279,Object Oriented Programming,CS202,1,Computer Science & Engineering,T005,Dr. Naveed Iqbal,S279,CS-F,2,43
+C280,Computer Graphics,CS378,2,Computer Science & Engineering,T012,Ms. Amna Shafiq,S280,CS-A,3,34
+C281,Engineering Management,HM321 EE 3rd,2,Electrical Engineering,T107,Dr. Zafar Abbas,S281,EE-A,3,43
+C282,Calculus II,MT102,2,Engineering Sciences,T103,Dr. Rehan Ullah,S282,ES-D,1,41
+C283,Calculus II,MT102,3,Engineering Sciences,T103,Dr. Rehan Ullah,S283,ES-E,1,30
+C284,Engineering Surveying,CV213,1,Civil Engineering,T605,Mr. Atif Manzoor,S284,CVE-A,2,41
+C285,Geotechnical Engineering,CV230,1,Civil Engineering,T606,Ms. Arooj Fatima,S285,CVE-A,2,44
+C286,Structural Dynamics,CV361,1,Civil Engineering,T603,Dr. Kamran Latif,S286,CVE-B,3,32
+C287,Foundation Engineering,CV425,2,Civil Engineering,T601,Dr. Sarfraz Hussain,S287,CVE-A,4,35
+C288,Industrial Chemistry,CH361,2,Chemical Engineering,T701,Dr. Zahid Nawaz,S288,CH-A,3,42
+C289,Reinforced Concrete Design,CV305,1,Civil Engineering,T602,Dr. Rashid Mehmood,S289,CVE-A,3,46
+C290,Calculus II,MT102,2,Engineering Sciences,T103,Dr. Rehan Ullah,S290,ES-G,1,48
+C291,Chemistry Lab,CH161,1,Chemical Engineering,T704,Ms. Sadia Zulfiqar,S291,CH-H,1,40
+C292,Chemistry Lab,CH161,1,Chemical Engineering,T704,Ms. Sadia Zulfiqar,S292,CH-F,1,30
+C293,Functional English,HM102 K Lab,1,Management Sciences,T502,Dr. Asma Arif,S293,MGS-A,1,39
+C294,Professional Ethics,HM223,2,Management Sciences,T501,Dr. Rana Shahid,S294,MGS-A,2,31
+C295,Functional English,HM102 B Lab,1,Management Sciences,T503,Dr. Kamil Hasan,S295,MGS-A,1,45
+C296,Functional English,HM102 F Lab,1,Management Sciences,T504,Dr. Sana Fatima,S296,MGS-A,1,30
+C297,Islamic Studies,HM121,2,Management Sciences,T512,Mr. Hamza Raza,S297,MGS-A,1,41
+C298,Functional English,HM102,2,Management Sciences,T501,Dr. Rana Shahid,S298,MGS-D,1,41
+C299,Technical Writing,HM211,1,Management Sciences,T506,Ms. Nida Rehman,S299,MGS-F (DS),2,35
+C300,Business Communication,MS130,1,Management Sciences,T502,Dr. Asma Arif,S300,MGS-B,1,41
+C301,Business Communication,MS130,1,Management Sciences,T502,Dr. Asma Arif,S301,MGS-D,1,48
+C302,International Business,MS361,3,Management Sciences,T505,Mr. Adnan Butt,S302,MGS-A,3,49
+C303,Engineering Management,EM433,2,Management Sciences,T506,Ms. Nida Rehman,S303,MGS-A,4,33
+C304,Advanced Finance,AF454,3,Management Sciences,T507,Dr. Zara Malik,S304,MGS-A,4,42
+C305,Renewable Energy Technologies,ME467,2,Mechanical Engineering,T307,Dr. Rizwan Khan,S305,ME-A,4,42
+C306,Tribology,ME419,2,Mechanical Engineering,T308,Mr. Zeeshan Tariq,S306,ME-A,4,46
+C307,HVAC Systems,ME364,2,Mechanical Engineering,T301,Dr. Iqbal Hussain,S307,ME-B,3,34
+C308,Engineering Vibrations,ME316,1,Mechanical Engineering,T302,Dr. Manzoor Ahmed,S308,ME-A,3,40
+C309,Programming Fundamentals,CS112,2,Computer Science & Engineering,T015,Dr. Salman Qadri,S309,CS-A,1,31
+C310,Introduction to Materials,MM101,2,Materials & Chemical Engineering,T402,Dr. Iftikhar Ahmed,S310,MCE-J,1,42
+C311,Natural Language Processing,CS478,1,Computer Science & Engineering,T005,Dr. Naveed Iqbal,S311,CS-C,4,46
+C312,Leadership Skills,HM331 EE 2nd,2,Management Sciences,T508,Mr. Tariq Saleem,S312,MGS-A,3,39
+C313,Fluid Mechanics for Civil,CV241,1,Civil Engineering,T603,Dr. Kamran Latif,S313,CVE-A,2,45
+C314,Data Mining,DS411,1,Computer Science & Engineering,T007,Dr. Kashif Javed,S314,CS-A,4,44
+C315,Engineering Surveying,CV213,1,Civil Engineering,T605,Mr. Atif Manzoor,S315,CVE-B,2,33
+C316,Chemistry Lab,CH161,1,Chemical Engineering,T704,Ms. Sadia Zulfiqar,S316,CH-G,1,47
+C317,Functional English,HM102 M Lab,1,Management Sciences,T509,Dr. Uzma Khan,S317,MGS-A,1,50
+C318,Research Methodology,HM404,1,Management Sciences,T510,Ms. Bushra Noor,S318,MGS-A,4,34
+C319,Functional English,HM102 C Lab,1,Management Sciences,T511,Dr. Faisal Iqbal,S319,MGS-A,1,40
+C320,Functional English,HM102 G Lab,1,Management Sciences,T512,Mr. Hamza Raza,S320,MGS-A,1,31
+C321,Functional English,HM102 I Lab,1,Management Sciences,T501,Dr. Rana Shahid,S321,MGS-A,1,41
+C322,Functional English,HM102 D Lab,1,Management Sciences,T502,Dr. Asma Arif,S322,MGS-A,1,45
+C323,Functional English,HM102 N Lab,1,Management Sciences,T503,Dr. Kamil Hasan,S323,MGS-A,1,34
+C324,Engineering Materials,ME203,1,Mechanical Engineering,T303,Dr. Javed Iqbal,S324,ME-B,2,34
+C325,Engineering Materials,ME203,1,Mechanical Engineering,T303,Dr. Javed Iqbal,S325,ME-A,2,34
+C326,Senior Design Project,ME494,2,Mechanical Engineering,T304,Dr. Tahir Abbas,S326,ME-A,4,42
+C327,Engineering Vibrations,ME316,1,Mechanical Engineering,T302,Dr. Manzoor Ahmed,S327,ME-B,3,46
+C328,Fracture Mechanics,MM392,2,Materials & Chemical Engineering,T404,Dr. Farrukh Shahzad,S328,MCE-A,3,50
+C329,Nanomaterials,MM365,2,Materials & Chemical Engineering,T405,Dr. Habib ur Rehman,S329,MCE-A,3,37
+C330,Innovation & Creativity,HM425,2,Management Sciences,T504,Dr. Sana Fatima,S330,MGS-A,4,43
+C331,Programming Fundamentals,CS112,2,Computer Science & Engineering,T015,Dr. Salman Qadri,S331,CS-C,1,49
+C332,Computer Graphics,CS378,1,Computer Science & Engineering,T012,Ms. Amna Shafiq,S332,CS-A,3,47
+C333,Functional English,HM102 H Lab,1,Management Sciences,T505,Mr. Adnan Butt,S333,MGS-A,1,39
+C334,HVAC Systems,ME364,1,Mechanical Engineering,T301,Dr. Iqbal Hussain,S334,ME-A,3,46
